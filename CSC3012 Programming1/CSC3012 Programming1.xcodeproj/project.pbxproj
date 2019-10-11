@@ -25,6 +25,10 @@
 /* Begin PBXFileReference section */
 		D4154BBB2350DD68002A33DE /* CSC3012 Programming1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "CSC3012 Programming1"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4154BBE2350DD68002A33DE /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		D4154BC52350DE1D002A33DE /* AVL_Tree.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AVL_Tree.hpp; sourceTree = "<group>"; };
+		D4154BC62350DE42002A33DE /* OperationIO.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = OperationIO.hpp; sourceTree = "<group>"; };
+		D4154BC72350DE58002A33DE /* Heap.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Heap.hpp; sourceTree = "<group>"; };
+		D4154BC92350DF30002A33DE /* Programming 1.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = "Programming 1.pdf"; path = "../Programming 1.pdf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +45,7 @@
 		D4154BB22350DD68002A33DE = {
 			isa = PBXGroup;
 			children = (
+				D4154BC92350DF30002A33DE /* Programming 1.pdf */,
 				D4154BBD2350DD68002A33DE /* CSC3012 Programming1 */,
 				D4154BBC2350DD68002A33DE /* Products */,
 			);
@@ -58,6 +63,9 @@
 			isa = PBXGroup;
 			children = (
 				D4154BBE2350DD68002A33DE /* main.cpp */,
+				D4154BC52350DE1D002A33DE /* AVL_Tree.hpp */,
+				D4154BC62350DE42002A33DE /* OperationIO.hpp */,
+				D4154BC72350DE58002A33DE /* Heap.hpp */,
 			);
 			path = "CSC3012 Programming1";
 			sourceTree = "<group>";
