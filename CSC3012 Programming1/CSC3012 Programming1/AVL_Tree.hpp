@@ -9,8 +9,22 @@
 #ifndef AVL_Tree_h
 #define AVL_Tree_h
 
+typedef int Value;
+
 class AVL {
-    
+    void insert(Value value);
+
+    bool search(Value value);
+
+    Value select(unsigned long index);
+
+    unsigned long rank(Value value);
+
+    Value min();
+
+    Value max();
+
+    void printInorder();
 }
 
 #endif /* AVL_Tree_h */

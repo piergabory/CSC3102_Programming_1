@@ -9,5 +9,14 @@
 #ifndef Heap_h
 #define Heap_h
 
+typedef int Value;
+
+class Heap {
+
+    void insert(Value value);
+
+    Value extractMin();
+
+}
 
 #endif /* Heap_h */
