@@ -6,24 +6,26 @@
 //  Copyright © 2019 piergabory. All rights reserved.
 //
 
-#include "BST.hpp"
+#include "AVL.hpp"
 
 int main(int argc, const char * argv[]) {
+    AVL tree;
 
-    BST tree(6);
-
-    tree.insert(1);
-    tree.insert(4);
-    tree.insert(8);
-    tree.insert(9);
+    for (int i = 0; i < 100; i++) {
+        tree.insert(i);
+    }
 
     tree.printInorder();
 
-    std::cout << "\n";
-    std::cout << "find 3: " << tree.search(3) << "\n";
-    std::cout << "find 4: " << tree.search(4) << "\n";
-    std::cout << "min: " << tree.min() << "\n";
-    std::cout << "max: " << tree.max() << "\n";
+    std::cout << "find 3: " << (tree.search(3) ? "true" : "false") << "\n";
+    std::cout << "find 4000: " << (tree.search(4000) ? "true" : "false") << "\n";
+
+    try {
+        std::cout << "min: " << tree.min() << "\n";
+        std::cout << "max: " << tree.max() << "\n";
+    } catch(std::nullptr_t error) {
+        std::cerr << "Error: empty tree\n";
+    }
 
     return 0;
 }

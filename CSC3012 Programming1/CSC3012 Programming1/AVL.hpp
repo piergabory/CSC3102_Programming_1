@@ -9,20 +9,42 @@
 #ifndef AVL_h
 #define AVL_h
 
-#include "BST.hpp"
+#include <iostream>
+#include <stack>
 
-class AVL: public BST {
+typedef int Value;
+
+class AVL {
 public:
-    void insert(Value value);
-
-    unsigned int rank(Value value);
-
+    void insert(Value key);
+    bool search(Value key);
+    void printInorder();
+    Value min();
+    Value max();
+    unsigned int rank(Value key);
     Value select(unsigned int index);
 
-    AVL(Value value);
 
 private:
-    int balance = 0;
+    struct Node {
+        Value key;
+        int balanceFactor = 0;
+        Node* left = nullptr;
+        Node* right = nullptr;
+
+        Node(Value key): key(key) {}
+        ~Node() { delete left; delete right; }
+    };
+    Node* root = nullptr;
+
+    static int insert(Node* &destination, Value value);
+    static void rebalance(Node* &root);
+
+    static void rotateLeft(Node* &root);
+    static void rotateLeftRight(Node* &root);
+
+    static void rotateRight(Node* &root);
+    static void rotateRightLeft(Node* &root);
 };
 
 #endif /* AVL_Tree_h */

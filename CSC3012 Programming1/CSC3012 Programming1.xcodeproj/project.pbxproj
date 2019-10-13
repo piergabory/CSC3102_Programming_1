@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		D4154BD6235130EE002A33DE /* AVL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D4154BD0235130EE002A33DE /* AVL.cpp */; };
 		D4154BD7235130EE002A33DE /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D4154BD2235130EE002A33DE /* main.cpp */; };
-		D4154BD8235130EE002A33DE /* BST.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D4154BD4235130EE002A33DE /* BST.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,12 +26,10 @@
 /* Begin PBXFileReference section */
 		D4154BBB2350DD68002A33DE /* CSC3012 Programming1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "CSC3012 Programming1"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4154BC92350DF30002A33DE /* Programming 1.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = "Programming 1.pdf"; path = "../Programming 1.pdf"; sourceTree = "<group>"; };
-		D4154BCF235130EE002A33DE /* BST.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BST.hpp; sourceTree = "<group>"; };
 		D4154BD0235130EE002A33DE /* AVL.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AVL.cpp; sourceTree = "<group>"; };
 		D4154BD1235130EE002A33DE /* OperationIO.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = OperationIO.hpp; sourceTree = "<group>"; };
 		D4154BD2235130EE002A33DE /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		D4154BD3235130EE002A33DE /* AVL.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AVL.hpp; sourceTree = "<group>"; };
-		D4154BD4235130EE002A33DE /* BST.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BST.cpp; sourceTree = "<group>"; };
 		D4154BD5235130EE002A33DE /* Heap.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Heap.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -69,8 +66,6 @@
 			children = (
 				D4154BD0235130EE002A33DE /* AVL.cpp */,
 				D4154BD3235130EE002A33DE /* AVL.hpp */,
-				D4154BD4235130EE002A33DE /* BST.cpp */,
-				D4154BCF235130EE002A33DE /* BST.hpp */,
 				D4154BD5235130EE002A33DE /* Heap.hpp */,
 				D4154BD2235130EE002A33DE /* main.cpp */,
 				D4154BD1235130EE002A33DE /* OperationIO.hpp */,
@@ -135,7 +130,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4154BD8235130EE002A33DE /* BST.cpp in Sources */,
 				D4154BD6235130EE002A33DE /* AVL.cpp in Sources */,
 				D4154BD7235130EE002A33DE /* main.cpp in Sources */,
 			);
