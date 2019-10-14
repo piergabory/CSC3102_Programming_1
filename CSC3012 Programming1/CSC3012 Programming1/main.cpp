@@ -14,7 +14,7 @@ int main(int argc, const char * argv[]) {
     std::cout << "rank 30: " << (tree.rank(30)) << "\n";
     try {
         std::cout << "select 30: " << (tree.select(30)) << "\n";
-    } catch(std::nullptr_t error) {
+    } catch(AVL::EmptyTreeError error) {
         std::cerr << "Error: empty tree\n";
     }
 
@@ -29,17 +29,23 @@ int main(int argc, const char * argv[]) {
 
     try {
         std::cout << "rank 30: " << (tree.rank(30)) << "\n";
+    } catch(AVL::EmptyTreeError x) {
+        std::cerr << "Error: empty tree\n";
+    }
+
+    try {
         std::cout << "select 30: " << (tree.select(30)) << "\n";
-    } catch(std::nullptr_t x) {
-        
+    } catch(AVL::EmptyTreeError x) {
+        std::cerr << "Error: empty tree\n";
     }
 
     try {
         std::cout << "min: " << tree.min() << "\n";
         std::cout << "max: " << tree.max() << "\n";
-    } catch(std::nullptr_t error) {
+    } catch(AVL::EmptyTreeError error) {
         std::cerr << "Error: empty tree\n";
     }
+
 
     try {
         for (int i = 0; i < 99; i++) {
@@ -50,9 +56,7 @@ int main(int argc, const char * argv[]) {
         std::cout << "successor 31: " << (tree.successor(31)) << "\n";
         std::cout << "successor 63: " << (tree.successor(63)) << "\n";
         std::cout << "successor 72: " << (tree.successor(72)) << "\n";
-        std::cout << "successor -1: " << (tree.successor(-1)) << "\n";
-        std::cout << "successor 3000: " << (tree.successor(3000)) << "\n";
-    } catch(std::nullptr_t error) {
+    } catch(AVL::KeyNotFoundError error) {
         std::cerr << "No successor\n";
     }
 

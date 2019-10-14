@@ -11,12 +11,16 @@
 
 #include <iostream>
 #include <stack>
+#include <exception>
 
 typedef int Value;
 typedef unsigned int Rank;
 
 class AVL {
 public:
+    class KeyNotFoundError: std::exception { };
+    class EmptyTreeError: std::exception { };
+
     inline void insert(Value key) { insert(root, key); }
     bool search(Value key);
     void printInorder();
@@ -24,7 +28,9 @@ public:
     Value max();
     Value successor(Value value);
     Rank rank(Value key) { return rank(root, key); }
-    Value select(Rank index)  { return select(root, index)->key; }
+    Value select(Rank index) throw(AVL::EmptyTreeError) { return select(root, index)->key; }
+
+
 
 private:
     struct Node {
@@ -42,7 +48,7 @@ private:
 
     static int insert(Node* &destination, Value value);
     static void rebalance(Node* &root);
-
+    
     static void rotateLeft(Node* &root);
     static void rotateLeftRight(Node* &root);
 

@@ -9,8 +9,10 @@
 #include "AVL.hpp"
 
 bool AVL::search(Value key) {
-    for (Node *current = root; current != nullptr; current = (key < current->key) ? current->left : current->left) {
+    Node *current = root;
+    while (current != nullptr) {
         if (current->key == key) return true;
+        current = (key < current->key) ? current->left : current->right;
     }
     return false;
 }
@@ -33,14 +35,14 @@ void AVL::printInorder() {
 }
 
 Value AVL::min() {
-    if (root == nullptr) throw nullptr;
+    if (root == nullptr) throw EmptyTreeError();
     Node* current = root;
     while (current->left != nullptr) current = current->left;
     return current->key;
 }
 
 Value AVL::max()  {
-    if (root == nullptr) throw nullptr;
+    if (root == nullptr) throw EmptyTreeError();
     Node* current = root;
     while (current->right != nullptr) current = current->right;
     return current->key;
@@ -49,26 +51,33 @@ Value AVL::max()  {
 Value AVL::successor(Value key) {
     bool goingLeft;
     Node *current = root, *adjacent = root;
-    
+
+    // classic iterative search. If we branch left, we keep a pointer to the parent.
     while (current) {
+        // Finds the key
         if (current->key == key) {
+            // if the key has a right child,
             if (current->right) {
+                // the successor is in the min of the right subtree.
                 adjacent = current->right;
+                // classic min
                 while (adjacent->left != nullptr) {
                     adjacent = adjacent->left;
                 }
             }
-            break;
+            // else the successor is the last parent where we branched left.
+            return adjacent->key;
         }
+
         goingLeft = key < current->key;
         if (goingLeft) adjacent = current;
         current = goingLeft ? current->left : current->right;
     }
-    return adjacent->key;
+    throw KeyNotFoundError();
 }
 
 AVL::Node* AVL::select(Node *root, unsigned int rank) {
-    if (root == nullptr) throw nullptr;
+    if (root == nullptr) throw EmptyTreeError();
     unsigned int leftSize = root->left ? root->left->size : 0;
     if (leftSize >= rank) {
         return select(root->left, rank);
