@@ -9,45 +9,30 @@
 #include "AVL.hpp"
 #include <iostream>
 
-int main(int argc, const char * argv[]) {
-    AVL bashtest, tree;
+void Heap_Tests() {
+    // todo
+}
 
-    for (int i = 0; i < 30; i++) {
-        tree.insert(i * 7);
-        bashtest.insert(i);
+void AVL_Tests() {
+    AVL batch, tree;
+
+    for (int i = 0; i < 300; i++) {
+        batch.insert(i);
     }
 
-    for (int i = 0; i < 29; i++) {
-        if (bashtest.successor(i) != i+1) {
-            throw "Nope";
+    for (int i = 0; i < (300 - 1); i++) {
+        if (batch.successor(i) != i+1) {
+            throw "Successor function is broken.";
         }
     }
 
-    try {
-        std::cout << "rank 30: " << (tree.rank(30)) << "\n";
-        std::cout << "select 30: " << (tree.select(30)) << "\n";
-    } catch(AVL::EmptyTreeError error) {
-        std::cerr << "Error: empty tree\n";
+    for (int i = 0; i < 30; i++) {
+        tree.insert(i * 7);
     }
-
-
 
     std::cout << tree.inorder() << "\n";
-
     std::cout << "find 3: " << (tree.search(3) ? "true" : "false") << "\n";
     std::cout << "find 4000: " << (tree.search(4000) ? "true" : "false") << "\n";
-
-    try {
-        std::cout << "rank 30: " << (tree.rank(30)) << "\n";
-    } catch(AVL::EmptyTreeError x) {
-        std::cerr << "Error: empty tree\n";
-    }
-
-    try {
-        std::cout << "select 30: " << (tree.select(30)) << "\n";
-    } catch(AVL::EmptyTreeError x) {
-        std::cerr << "Error: empty tree\n";
-    }
 
     try {
         std::cout << "min: " << tree.min() << "\n";
@@ -56,14 +41,29 @@ int main(int argc, const char * argv[]) {
         std::cerr << "Error: empty tree\n";
     }
 
-
     try {
-        std::cout << "successor 31: " << (tree.successor(31)) << "\n";
-        std::cout << "successor 63: " << (tree.successor(63)) << "\n";
-        std::cout << "successor 72: " << (tree.successor(72)) << "\n";
+        std::cout << "successor 64: " << (tree.successor(63)) << "\n";
+        std::cout << "successor 28: " << (tree.successor(28)) << "\n";
+        std::cout << "successor 77: " << (tree.successor(77)) << "\n";
     } catch(AVL::KeyNotFoundError error) {
         std::cerr << "No successor\n";
     }
 
+    try {
+         std::cout << "rank 30: " << (tree.rank(30)) << "\n";
+     } catch(AVL::EmptyTreeError x) {
+         std::cerr << "Error: empty tree\n";
+     }
+
+     try {
+         std::cout << "select 30: " << (tree.select(30)) << "\n";
+     } catch(AVL::EmptyTreeError x) {
+         std::cerr << "Error: empty tree\n";
+     }
+}
+
+int main(int argc, const char * argv[]) {
+    AVL_Tests();
+    Heap_Tests();
     return 0;
 }
