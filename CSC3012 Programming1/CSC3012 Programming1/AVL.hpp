@@ -13,22 +13,24 @@
 #include <stack>
 
 typedef int Value;
+typedef unsigned int Rank;
 
 class AVL {
 public:
-    void insert(Value key);
+    inline void insert(Value key) { insert(root, key); }
     bool search(Value key);
     void printInorder();
     Value min();
     Value max();
-    unsigned int rank(Value key);
-    Value select(unsigned int index);
-
+    Value successor(Value value);
+    Rank rank(Value key) { return rank(root, key); }
+    Value select(Rank index)  { return select(root, index)->key; }
 
 private:
     struct Node {
         Value key;
         int balanceFactor = 0;
+        unsigned int size = 0;
         Node* left = nullptr;
         Node* right = nullptr;
 
@@ -36,6 +38,7 @@ private:
         ~Node() { delete left; delete right; }
     };
     Node* root = nullptr;
+
 
     static int insert(Node* &destination, Value value);
     static void rebalance(Node* &root);
@@ -45,6 +48,9 @@ private:
 
     static void rotateRight(Node* &root);
     static void rotateRightLeft(Node* &root);
+
+    static Node* select(Node* root, Rank rank);
+    static Rank rank(Node* root, Value rank);
 };
 
 #endif /* AVL_Tree_h */

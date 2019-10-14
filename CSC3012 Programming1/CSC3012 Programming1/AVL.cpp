@@ -8,13 +8,6 @@
 
 #include "AVL.hpp"
 
-
-
-void AVL::insert(Value key) {
-    insert(root, key);
-}
-
-
 bool AVL::search(Value key) {
     for (Node *current = root; current != nullptr; current = (key < current->key) ? current->left : current->left) {
         if (current->key == key) return true;
@@ -53,12 +46,56 @@ Value AVL::max()  {
     return current->key;
 }
 
+Value AVL::successor(Value key) {
+    bool goingLeft;
+    Node *current = root, *adjacent = root;
+    
+    while (current) {
+        if (current->key == key) {
+            if (current->right) {
+                adjacent = current->right;
+                while (adjacent->left != nullptr) {
+                    adjacent = adjacent->left;
+                }
+            }
+            break;
+        }
+        goingLeft = key < current->key;
+        if (goingLeft) adjacent = current;
+        current = goingLeft ? current->left : current->right;
+    }
+    return adjacent->key;
+}
+
+AVL::Node* AVL::select(Node *root, unsigned int rank) {
+    if (root == nullptr) throw nullptr;
+    unsigned int leftSize = root->left ? root->left->size : 0;
+    if (leftSize >= rank) {
+        return select(root->left, rank);
+    }
+    if (leftSize + 1 == rank) {
+        return root;
+    }
+    return select(root->right, rank - 1 - leftSize);
+}
+
+
+Rank AVL::rank(Node *root, Value key) {
+    if (root == nullptr) return 0;
+    if (key < root->key) return rank(root->left, key);
+    if (key == root->key) return (root->left ? root->left->size : 0) + 1;
+    return root->left->size + 1 + rank(root->right, key);
+}
+
+
 int AVL::insert(Node* &root, Value key) {
     int imbalance;
     if (root == nullptr) {
         root = new Node(key);
         return 1;
     }
+
+    root->size++;
 
     if (key < root->key) {
         imbalance = -insert(root->left, key);
