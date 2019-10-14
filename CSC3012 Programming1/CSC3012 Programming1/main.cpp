@@ -7,22 +7,32 @@
 //
 
 #include "AVL.hpp"
+#include <iostream>
 
 int main(int argc, const char * argv[]) {
-    AVL tree;
+    AVL bashtest, tree;
 
-    std::cout << "rank 30: " << (tree.rank(30)) << "\n";
+    for (int i = 0; i < 30; i++) {
+        tree.insert(i * 7);
+        bashtest.insert(i);
+    }
+
+    for (int i = 0; i < 29; i++) {
+        if (bashtest.successor(i) != i+1) {
+            throw "Nope";
+        }
+    }
+
     try {
+        std::cout << "rank 30: " << (tree.rank(30)) << "\n";
         std::cout << "select 30: " << (tree.select(30)) << "\n";
     } catch(AVL::EmptyTreeError error) {
         std::cerr << "Error: empty tree\n";
     }
 
-    for (int i = 0; i < 100; i++) {
-        tree.insert(i);
-    }
 
-    tree.printInorder();
+
+    std::cout << tree.inorder() << "\n";
 
     std::cout << "find 3: " << (tree.search(3) ? "true" : "false") << "\n";
     std::cout << "find 4000: " << (tree.search(4000) ? "true" : "false") << "\n";
@@ -48,11 +58,6 @@ int main(int argc, const char * argv[]) {
 
 
     try {
-        for (int i = 0; i < 99; i++) {
-            if (tree.successor(i) != i+1) {
-                throw "Nope";
-            }
-        }
         std::cout << "successor 31: " << (tree.successor(31)) << "\n";
         std::cout << "successor 63: " << (tree.successor(63)) << "\n";
         std::cout << "successor 72: " << (tree.successor(72)) << "\n";

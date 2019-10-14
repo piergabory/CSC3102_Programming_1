@@ -9,7 +9,7 @@
 #ifndef AVL_h
 #define AVL_h
 
-#include <iostream>
+#include <string>
 #include <stack>
 #include <exception>
 
@@ -23,7 +23,7 @@ public:
 
     inline void insert(Value key) { insert(root, key); }
     bool search(Value key);
-    void printInorder();
+    std::string inorder();
     Value min();
     Value max();
     Value successor(Value value);

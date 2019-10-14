@@ -17,10 +17,10 @@ bool AVL::search(Value key) {
     return false;
 }
 
-void AVL::printInorder() {
+std::string AVL::inorder() {
     Node* current = root;
     std::stack<Node*> stack;
-
+    std::string output = "";
     while (current || !stack.empty()) {
         while (current) {
             stack.push(current);
@@ -28,10 +28,11 @@ void AVL::printInorder() {
         }
         current = stack.top();
         stack.pop();
-        std::cout << current->key << " ";
+        output += std::to_string(current->key) + " ";
         current = current->right;
     }
-    std::cout << "\n";
+
+    return output;
 }
 
 Value AVL::min() {
@@ -93,7 +94,7 @@ Rank AVL::rank(Node *root, Value key) {
     if (root == nullptr) return 0;
     if (key < root->key) return rank(root->left, key);
     if (key == root->key) return (root->left ? root->left->size : 0) + 1;
-    return root->left->size + 1 + rank(root->right, key);
+    return root->left->size + 1 + rank(root->right, key); // Segfault here means the size proprety isn't maintained properly. todo: Fix Lrotate/Rrotate size property.
 }
 
 
@@ -102,6 +103,11 @@ int AVL::insert(Node* &root, Value key) {
     if (root == nullptr) {
         root = new Node(key);
         return 1;
+    }
+
+    // discard duplicates
+    if (root->key == key) {
+        return 0;
     }
 
     root->size++;
@@ -182,7 +188,6 @@ void AVL::rotateLeft(Node* &root) {
     } else {
         pivot->balanceFactor = pivotBalance + 1;
     }
-
 
     root = pivot;
 }
