@@ -2,61 +2,231 @@
 //  AVL.hpp
 //  CSC3012 Programming1
 //
-//  Created by Pierre Gabory on 11/10/2019.
+//  Created by Pierre Gabory on 14/10/2019.
 //  Copyright © 2019 piergabory. All rights reserved.
 //
 
-#ifndef AVL_h
-#define AVL_h
+#ifndef AVL_hpp
+#define AVL_hpp
 
+#include <algorithm>
 #include <string>
-#include <stack>
-#include <exception>
 
-typedef int Value;
-typedef unsigned int Rank;
-
+template<typename T>
 class AVL {
+    const T _key;
+    int balanceFactor = 0;
+    int size = 0;
+    AVL<T> *left = nullptr;
+    AVL<T> *right = nullptr;
+
 public:
-    class KeyNotFoundError: std::exception { };
-    class EmptyTreeError: std::exception { };
 
-    inline void insert(Value key) { insert(root, key); }
-    bool search(Value key);
-    std::string inorder();
-    Value min();
-    Value max();
-    Value successor(Value value);
-    Rank rank(Value key) { return rank(root, key); }
-    Value select(Rank index) throw(AVL::EmptyTreeError) { return select(root, index)->key; }
+    AVL(T key): _key(key) {}
 
+    ~AVL() { delete left; delete right; }
 
+    inline T getKey() {
+        return _key;
+    }
 
-private:
-    struct Node {
-        Value key;
-        int balanceFactor = 0;
-        unsigned int size = 0;
-        Node* left = nullptr;
-        Node* right = nullptr;
+    std::string inorder() {
+        std::string string = "";
+        if (left) {
+            string += left->inorder();
+        }
+        string += "(" + std::to_string(getKey()) + ")";
+        if (right) {
+            string += right->inorder();
+        }
+        return string;
+    }
 
-        Node(Value key): key(key) {}
-        ~Node() { delete left; delete right; }
-    };
-    Node* root = nullptr;
+    bool search(T value) {
+        AVL<T> *current = this;
+        while (current) {
+            if (value == current->getKey()) {
+                return true;
+            }
 
+            if (value < current->getKey()) {
+                current = current->left;
+            } else {
+                current = current->right;
+            }
+        }
+        return false;
+    }
 
-    static int insert(Node* &destination, Value value);
-    static void rebalance(Node* &root);
-    
-    static void rotateLeft(Node* &root);
-    static void rotateLeftRight(Node* &root);
+    AVL<T>* min() {
+        AVL<T> *current = this;
+        while (current->left) {
+            current = current->left;
+        }
+        return current;
+    }
 
-    static void rotateRight(Node* &root);
-    static void rotateRightLeft(Node* &root);
+    AVL<T>* max() {
+        AVL<T> *current = this;
+        while (current->right) {
+            current = current->right;
+        }
+        return current;
+    }
 
-    static Node* select(Node* root, Rank rank);
-    static Rank rank(Node* root, Value rank);
+    AVL<T>* successor(T value) {
+        bool found = false;
+        AVL<T> *current = this, *lastSuperiorParent = nullptr;
+
+        while (current) {
+            if (value == current->getKey()) {
+                found = true;
+                if (current->right) {
+                    return current->right->min();
+                }
+            }
+
+            if (value < current->getKey()) {
+                lastSuperiorParent = current;
+                current = current->left;
+            } else {
+                current = current->right;
+            }
+        }
+
+        if (found) {
+            return lastSuperiorParent; // Null if no successors.
+        } else {
+            return nullptr;
+        }
+    }
+
+    AVL<T>* select(unsigned int rank) {
+        int leftSize = left ? left->size : 0;
+        if (leftSize >= rank) {
+            return left->select(rank);
+        }
+        if (leftSize + 1 == rank) {
+            return this;
+        }
+        return right->select(rank - leftSize -  1);
+    }
+
+    unsigned int rank(T key) {
+        unsigned int leftRank = left ? left->rank(key) : 0;
+        unsigned int rightRank = right ? right->rank(key) : 0;
+        unsigned int leftSize = (left ? left->size : 0);
+
+        if (key < getKey()) return leftRank;
+        if (key == getKey()) return leftSize + 1;
+        return leftSize + 1 + rightRank;
+    }
+
+    static int insert(AVL *&node, T key) {
+        int imbalance;
+        if (node == nullptr) {
+            node = new AVL<T>(key);
+            return 1;
+        }
+
+        // discard duplicates
+        if (node->getKey() == key) {
+            return 0;
+        }
+
+        node->size++;
+
+        if (key < node->getKey()) {
+            imbalance = -insert(node->left, key);
+        } else {
+            imbalance = insert(node->right, key);
+        }
+
+        if (imbalance == 0) {
+            return 0;
+        }
+
+        node->balanceFactor += imbalance;
+        rebalance(node);
+        return (node->balanceFactor == 0) ? 0 : 1;
+    }
+
+    private:
+
+    static void rebalance(AVL *&node) {
+        if (node->balanceFactor == 2) {
+            if (node->right->balanceFactor >= 0) {
+                rotateLeft(node);
+            } else {
+                rotateRightLeft(node);
+            }
+        }
+
+        if (node->balanceFactor == -2) {
+            if (node->left->balanceFactor <= 0) {
+                rotateRight(node);
+            } else {
+                rotateLeftRight(node);
+            }
+        }
+    }
+
+    static void rotateRight(AVL *&node) {
+        AVL* pivot = node->left;
+        node->left = pivot->right;
+        pivot->right = node;
+
+        int rootBalance = node->balanceFactor;
+        int pivotBalance = pivot->balanceFactor;
+
+        if (pivot->balanceFactor >= 0) {
+            node->balanceFactor = rootBalance - pivotBalance - 1;
+        } else {
+            node->balanceFactor = rootBalance - 1;
+        }
+
+        if (node->balanceFactor <= 0) {
+            pivot->balanceFactor = pivotBalance + node->balanceFactor -1;
+        } else {
+            pivot->balanceFactor = pivotBalance + 1;
+        }
+
+        node = pivot;
+    }
+
+    static void rotateLeft(AVL *&node) {
+        AVL *pivot = node->right;
+        node->right = pivot->left;
+        pivot->left = node;
+
+        int rootBalance = node->balanceFactor;
+        int pivotBalance = pivot->balanceFactor;
+
+        if (pivot->balanceFactor >= 0) {
+            node->balanceFactor = rootBalance - pivotBalance - 1;
+        } else {
+            node->balanceFactor = rootBalance - 1;
+        }
+
+        if (node->balanceFactor <= 0) {
+            pivot->balanceFactor = pivotBalance + node->balanceFactor -1;
+        } else {
+            pivot->balanceFactor = pivotBalance + 1;
+        }
+
+        node = pivot;
+    }
+
+    inline static void rotateLeftRight(AVL *&node) {
+        rotateLeft(node);
+        rotateRight(node);
+    }
+
+    inline static void rotateRightLeft(AVL *&node) {
+        rotateRight(node);
+        rotateLeft(node);
+    }
 };
 
-#endif /* AVL_Tree_h */
+
+#endif /* AVL_hpp */
