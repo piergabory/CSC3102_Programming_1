@@ -35,7 +35,7 @@ public:
         if (left) {
             string += left->inorder();
         }
-        string += "(" + std::to_string(getKey()) + ")";
+        string += std::to_string(getKey()) + " ";
         if (right) {
             string += right->inorder();
         }

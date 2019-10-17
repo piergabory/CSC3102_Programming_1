@@ -9,6 +9,9 @@
 #ifndef input_hpp
 #define input_hpp
 
+#include <cstring>
+#include <cstdio>
+
 #include <iostream>
 #include <string>
 #include <typeinfo>
@@ -16,19 +19,23 @@
 #include "AVL.hpp"
 #include "Heap.hpp"
 
+
 class Instructions {
-    FILE* file;
+    FILE* input = nullptr;
+    std::string buffer = "";
+    unsigned int extract_min_count = 0;
 
 public:
     Instructions(std::string filename);
     ~Instructions();
     void executeForAVL();
     void executeForHeap();
+    void saveTo(std::string filename);
 
 private:
-    void getNextInstruction(char instruction[], int &integer);
-    static void executeHeap(char* instruction, int parameter, Heap<int> &heap);
-    static void executeAVL(char* instruction, int parameter, AVL<int> *&tree);
+    std::string getNextInstruction(char instruction[], int &integer);
+    std::string executeHeap(char* instruction, int parameter, Heap<int> &heap);
+    std::string executeAVL(char* instruction, int parameter, AVL<int> *&tree);
 };
 
 
