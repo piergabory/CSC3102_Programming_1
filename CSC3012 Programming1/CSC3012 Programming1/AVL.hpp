@@ -16,7 +16,7 @@ template<typename T>
 class AVL {
     const T _key;
     int balanceFactor = 0;
-    int size = 0;
+    int size = 1;
     AVL<T> *left = nullptr;
     AVL<T> *right = nullptr;
 
@@ -176,6 +176,10 @@ public:
         node->left = pivot->right;
         pivot->right = node;
 
+        // update size property
+        pivot->size += (node->right ? node->right->size : 0) + 1;
+        node->size -= (pivot->left ? pivot->left->size : 0) + 1;
+
         int rootBalance = node->balanceFactor;
         int pivotBalance = pivot->balanceFactor;
 
@@ -198,6 +202,10 @@ public:
         AVL *pivot = node->right;
         node->right = pivot->left;
         pivot->left = node;
+
+        // update size property
+        pivot->size += (node->left ? node->left->size : 0) + 1;
+        node->size -= (pivot->right ? pivot->right->size : 0) + 1;
 
         int rootBalance = node->balanceFactor;
         int pivotBalance = pivot->balanceFactor;

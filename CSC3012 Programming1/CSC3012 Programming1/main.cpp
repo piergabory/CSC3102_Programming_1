@@ -7,15 +7,27 @@
 //
 
 #include "AVL.hpp"
+#include "Heap.hpp"
+
 #include <iostream>
 
 void Heap_Tests() {
-    // todo
+    Heap<int> heap;
+
+    for (int i = 30; i != 0 ; i--) {
+        heap.insert(i);
+    }
+
+    for (int i = 30; i != 0 ; i--) {
+        std::cout << heap.extractMin() << " ";
+    }
+
+    std::cout << "\n";
 }
 
 void AVL_Tests() {
     AVL<int> *batch = new AVL<int>(0);
-    AVL<float> *tree = new AVL<float>(3.14);
+    AVL<char> *tree = new AVL<char>('a');
 
     for (int i = 0; i < 300; i++) {
         AVL<int>::insert(batch, i);
@@ -27,22 +39,22 @@ void AVL_Tests() {
         }
     }
 
-    for (int i = 0; i < 30; i++) {
-        AVL<float>::insert(tree, i * 7.0);
+    for (int i = 0; i < 26; i++) {
+        AVL<char>::insert(tree, i + 'a');
     }
 
     std::cout << tree->inorder() << "\n";
-    std::cout << "find 63: " << (tree->search(63) ? "true" : "false") << "\n";
-    std::cout << "find 4000: " << (tree->search(4000) ? "true" : "false") << "\n";
+    std::cout << "find 'x': " << (tree->search('x') ? "true" : "false") << "\n";
+    std::cout << "find 'X': " << (tree->search('X') ? "true" : "false") << "\n";
     std::cout << "min: " << tree->min()->getKey() << "\n";
     std::cout << "max: " << tree->max()->getKey() << "\n";
 
-    std::cout << "successor 64: " << (tree->successor(63)->getKey()) << "\n";
-    std::cout << "successor 28: " << (tree->successor(28)->getKey()) << "\n";
-    std::cout << "successor 77: " << (tree->successor(77)->getKey()) << "\n";
+    std::cout << "successor 'a': " << (tree->successor('a')->getKey()) << "\n";
+    std::cout << "successor 'x': " << (tree->successor('x')->getKey()) << "\n";
+    std::cout << "successor 'm': " << (tree->successor('m')->getKey()) << "\n";
 
-    std::cout << "rank 77: " << (tree->rank(77)) << "\n";
-    std::cout << "select 13: " << (tree->select(13)->getKey()) << "\n";
+    std::cout << "rank 'c': " << (tree->rank('c')) << "\n";
+    std::cout << "select 3: " << (tree->select(3)->getKey()) << "\n";
 }
 
 int main(int argc, const char * argv[]) {
