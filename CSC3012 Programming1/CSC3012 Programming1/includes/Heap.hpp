@@ -11,11 +11,15 @@
 
 #include <vector>
 
-template <int K, typename T>
+template <typename T>
 class Heap {
+    const int K;
     std::vector<T> arrayRep;
-
+    
     public:
+    Heap() : K(2) {}
+    Heap(const int k): K(k) {}
+
     void insert(T value) {
         arrayRep.push_back(value);
         size_t parent, current = arrayRep.size();
@@ -30,17 +34,26 @@ class Heap {
     }
 
     T extractMin() {
-        const T min = arrayRep.front();
-        swap(arrayRep.front(), arrayRep.back());
+        const T min = first();
+        swap(first(), last());
         arrayRep.pop_back();
 
         size_t next, current = 1;
         while (current < arrayRep.size()) {
             next = current * K;
-            if (get(current) < get(next) && get(current) < get(next + 1)) {
-                break;
+
+            bool validHeap = true;
+            for (size_t i = 0; i < K; i++) {
+                validHeap &= get(current) < get(next + 1);
             }
-            next += get(next) > get(next + 1);
+            if (validHeap) return min;
+
+            size_t min_child_index = next;
+            for (size_t i = 0; i < K; i++) {
+                min_child_index = ( get(next) < get(min_child_index) ) ? next : min_child_index;
+            }
+            next = min_child_index;
+
             swap(get(current), get(next));
             current = next;
         }
@@ -49,6 +62,14 @@ class Heap {
     }
 
 private:
+    inline T& first() {
+        return arrayRep[0];
+    }
+
+    inline T& last() {
+        return arrayRep[arrayRep.size() - 1];
+    }
+
     inline T& get(size_t index) {
         return arrayRep[index - 1];
     }

@@ -34,7 +34,7 @@ public:
 
 private:
     std::string getNextInstruction(char instruction[], int &integer);
-    std::string executeHeap(char* instruction, int parameter, Heap<2,int> &heap);
+    std::string executeHeap(char* instruction, int parameter, Heap<int> &heap);
     std::string executeAVL(char* instruction, int parameter, AVL<int> *&tree);
 };
 
