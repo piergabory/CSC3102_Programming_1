@@ -53,7 +53,7 @@ void Instructions::executeForHeap() {
         return;
     }
 
-    Heap<int> heap;
+    Heap<2,int> heap;
     char instruction[3];
     int integer;
 
@@ -94,7 +94,7 @@ std::string Instructions::getNextInstruction(char instruction[], int &integer) {
     return std::string(instructionBuffer);
 }
 
-std::string Instructions::executeHeap(char* instruction, int parameter, Heap<int> &heap) {
+std::string Instructions::executeHeap(char* instruction, int parameter, Heap<2,int> &heap) {
     std::string out = "";
     if (strcmp(instruction, "IN") == 0) { heap.insert(parameter); }
     if (strcmp(instruction, "EX") == 0) {

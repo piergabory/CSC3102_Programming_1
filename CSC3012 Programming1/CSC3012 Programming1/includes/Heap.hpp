@@ -11,7 +11,7 @@
 
 #include <vector>
 
-template <typename T>
+template <int K, typename T>
 class Heap {
     std::vector<T> arrayRep;
 
@@ -20,7 +20,7 @@ class Heap {
         arrayRep.push_back(value);
         size_t parent, current = arrayRep.size();
         while (current != 0) {
-            parent = current / 2;
+            parent = current / K;
             if (get(current) > get(parent)) {
                 return;
             }
@@ -36,7 +36,7 @@ class Heap {
 
         size_t next, current = 1;
         while (current < arrayRep.size()) {
-            next = current * 2;
+            next = current * K;
             if (get(current) < get(next) && get(current) < get(next + 1)) {
                 break;
             }
