@@ -63,8 +63,11 @@ int main(int argc, const char * argv[]) {
     AVL_Tests();
     Heap_Tests();
 
-    Instructions instructions("AVLinput.txt");
-    instructions.executeForAVL();
+    Instructions avl_instructions("AVLinput.txt");
+    avl_instructions.executeForAVL();
+
+    Instructions heap_instructions("HeapInput.txt");
+    heap_instructions.executeForHeap();
 
     return 0;
 }
