@@ -8,8 +8,10 @@
 
 #include "AVL.hpp"
 #include "Heap.hpp"
+#include "input.hpp"
 
 #include <iostream>
+
 
 void Heap_Tests() {
     Heap<int> heap;
@@ -60,5 +62,9 @@ void AVL_Tests() {
 int main(int argc, const char * argv[]) {
     AVL_Tests();
     Heap_Tests();
+
+    Instructions instructions("AVLinput.txt");
+    instructions.executeForAVL();
+
     return 0;
 }

@@ -15,7 +15,7 @@
 template<typename T>
 class AVL {
     const T _key;
-    int balanceFactor = 0;
+    int height = 0;
     int size = 1;
     AVL<T> *left = nullptr;
     AVL<T> *right = nullptr;
@@ -134,36 +134,39 @@ public:
             return 0;
         }
 
-        node->size++;
-
         if (key < node->getKey()) {
             imbalance = -insert(node->left, key);
         } else {
             imbalance = insert(node->right, key);
         }
 
+        node->size++;
+
         if (imbalance == 0) {
             return 0;
         }
 
-        node->balanceFactor += imbalance;
         rebalance(node);
-        return (node->balanceFactor == 0) ? 0 : 1;
+        return (node->balanceFactor() == 0) ? 0 : 1;
     }
 
     private:
 
+    inline int balanceFactor() {
+        return (right ? right->height : 0) - (left ? left->height : 0);
+    }
+
     static void rebalance(AVL *&node) {
-        if (node->balanceFactor == 2) {
-            if (node->right->balanceFactor >= 0) {
+        if (node->balanceFactor() == 2) {
+            if (node->right->balanceFactor() >= 0) {
                 rotateLeft(node);
             } else {
                 rotateRightLeft(node);
             }
         }
 
-        if (node->balanceFactor == -2) {
-            if (node->left->balanceFactor <= 0) {
+        if (node->balanceFactor() == -2) {
+            if (node->left->balanceFactor() <= 0) {
                 rotateRight(node);
             } else {
                 rotateLeftRight(node);
@@ -180,20 +183,10 @@ public:
         pivot->size += (node->right ? node->right->size : 0) + 1;
         node->size -= (pivot->left ? pivot->left->size : 0) + 1;
 
-        int rootBalance = node->balanceFactor;
-        int pivotBalance = pivot->balanceFactor;
+        // update height property
+        node->height = std::max(node->left->height, node->right->height);
+        pivot->height = std::max(pivot->left->height, pivot->right->height);
 
-        if (pivot->balanceFactor >= 0) {
-            node->balanceFactor = rootBalance - pivotBalance - 1;
-        } else {
-            node->balanceFactor = rootBalance - 1;
-        }
-
-        if (node->balanceFactor <= 0) {
-            pivot->balanceFactor = pivotBalance + node->balanceFactor -1;
-        } else {
-            pivot->balanceFactor = pivotBalance + 1;
-        }
 
         node = pivot;
     }
@@ -207,31 +200,19 @@ public:
         pivot->size += (node->left ? node->left->size : 0) + 1;
         node->size -= (pivot->right ? pivot->right->size : 0) + 1;
 
-        int rootBalance = node->balanceFactor;
-        int pivotBalance = pivot->balanceFactor;
-
-        if (pivot->balanceFactor >= 0) {
-            node->balanceFactor = rootBalance - pivotBalance - 1;
-        } else {
-            node->balanceFactor = rootBalance - 1;
-        }
-
-        if (node->balanceFactor <= 0) {
-            pivot->balanceFactor = pivotBalance + node->balanceFactor -1;
-        } else {
-            pivot->balanceFactor = pivotBalance + 1;
-        }
+        node->height = std::max(node->left->height, node->right->height);
+        pivot->height = std::max(pivot->left->height, pivot->right->height);
 
         node = pivot;
     }
 
     inline static void rotateLeftRight(AVL *&node) {
-        rotateLeft(node);
+        rotateLeft(node->left);
         rotateRight(node);
     }
 
     inline static void rotateRightLeft(AVL *&node) {
-        rotateRight(node);
+        rotateRight(node->right);
         rotateLeft(node);
     }
 };
