@@ -2,11 +2,13 @@
 //  input.cpp
 //  CSC3012 Programming1
 //
-//  Created by Pierre Gabory on 17/10/2019.
+//  Created by Pierre Gabory and Wasim alam on 17/10/2019.
 //  Copyright © 2019 piergabory. All rights reserved.
 //
 
 #include "Instructions.hpp"
+
+namespace CSC3012_P1 {
 
 static std::string nth(unsigned int count) {
     std::string out = std::to_string(count);
@@ -22,9 +24,9 @@ static std::string nth(unsigned int count) {
 
 
 Instructions::Instructions(std::string filename):
-    input(nullptr),
-    buffer(""),
-    extract_min_count(0)
+input(nullptr),
+buffer(""),
+extract_min_count(0)
 {
     input = fopen(filename.c_str(), "r");
     if (input == nullptr) {
@@ -94,7 +96,7 @@ void Instructions::executeForHeap() {
 
 void Instructions::saveTo(std::string filename) {
     FILE* output = fopen(filename.c_str(), "w");
-    
+
     if (output == nullptr) {
         std::cerr << "Failed to create output file.\n";
         return;
@@ -160,4 +162,7 @@ std::string Instructions::executeAVL(char* instruction, int parameter, AVL<int> 
     else { out += "Symbol out of specification."; }
 
     return out;
+}
+
+
 }

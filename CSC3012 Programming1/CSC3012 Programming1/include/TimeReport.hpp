@@ -2,7 +2,7 @@
 //  TimeReport.hpp
 //  CSC3012 Programming1
 //
-//  Created by Pierre Gabory on 17/10/2019.
+//  Created by Pierre Gabory and Wasim alam on 17/10/2019.
 //  Copyright © 2019 piergabory. All rights reserved.
 //
 
@@ -13,6 +13,8 @@
 #include <string>
 
 #include "timer.hpp"
+
+namespace CSC3012_P1 {
 
 class TimeReport {
     struct Result {
@@ -31,5 +33,7 @@ public:
     void stopRecording();
     std::string report();
 };
+
+}
 
 #endif /* TimeReport_hpp */

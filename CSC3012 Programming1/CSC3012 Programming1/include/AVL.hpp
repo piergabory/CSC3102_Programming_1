@@ -2,7 +2,7 @@
 //  AVL.hpp
 //  CSC3012 Programming1
 //
-//  Created by Pierre Gabory on 14/10/2019.
+//  Created by Pierre Gabory and Wasim alam on 14/10/2019.
 //  Copyright © 2019 piergabory. All rights reserved.
 //
 
@@ -11,6 +11,8 @@
 
 #include <algorithm>
 #include <string>
+
+namespace CSC3012_P1 {
 
 /**
  * # AVL Tree class
@@ -358,5 +360,6 @@ public:
     }
 };
 
+}
 
 #endif /* AVL_hpp */

@@ -2,11 +2,13 @@
 //  TimeReport.cpp
 //  CSC3012 Programming1
 //
-//  Created by Pierre Gabory on 17/10/2019.
+//  Created by Pierre Gabory and Wasim alam on 17/10/2019.
 //  Copyright © 2019 piergabory. All rights reserved.
 //
 
 #include "TimeReport.hpp"
+
+namespace CSC3012_P1 {
 
 void TimeReport::startRecording(std::string name) {
     stopwatch.startTimer();
@@ -28,7 +30,7 @@ std::string TimeReport::report() {
         min = min < result.time ? min : result.time;
         max = max > result.time ? max : result.time;
     }
-
+    
     report += "Report -------------------------\n";
     const double chart_length = 16;
     for(Result result: results) {
@@ -38,4 +40,6 @@ std::string TimeReport::report() {
     }
     results.clear();
     return report;
+}
+
 }

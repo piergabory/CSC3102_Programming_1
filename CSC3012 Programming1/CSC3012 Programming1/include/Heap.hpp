@@ -2,7 +2,7 @@
 //  Heap.hpp
 //  CSC3012 Programming1
 //
-//  Created by Pierre Gabory on 11/10/2019.
+//  Created by Pierre Gabory and Wasim alam on 11/10/2019.
 //  Copyright © 2019 piergabory. All rights reserved.
 //
 
@@ -10,6 +10,8 @@
 #define Heap_h
 
 #include <vector>
+
+namespace CSC3012_P1 {
 
 template <typename T>
 class Heap {
@@ -75,5 +77,7 @@ private:
         rhs = tmp;
     }
 };
+
+}
 
 #endif /* Heap_h */
