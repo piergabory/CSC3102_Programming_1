@@ -23,7 +23,7 @@ public:
     void insert(T value) {
         arrayRep.push_back(value);
         size_t parent, current = arrayRep.size();
-        while (current != 0) {
+        while (current >= K) {
             parent = current / K;
             if (get(current) > get(parent)) {
                 return;

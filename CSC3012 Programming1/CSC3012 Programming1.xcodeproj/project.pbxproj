@@ -32,10 +32,10 @@
 		D4154BD5235130EE002A33DE /* Heap.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Heap.hpp; sourceTree = "<group>"; };
 		D4D9DD1D2358B84600290C11 /* Instructions.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Instructions.cpp; sourceTree = "<group>"; };
 		D4D9DD1E2358B84600290C11 /* Instructions.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Instructions.hpp; sourceTree = "<group>"; };
-		D4D9DD202358C19B00290C11 /* AVLinput.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = AVLinput.txt; sourceTree = "<group>"; };
-		D4D9DD212358D35900290C11 /* HeapInput.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = HeapInput.txt; sourceTree = "<group>"; };
-		D4D9DD222358F7E000290C11 /* HeapOutput.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = HeapOutput.txt; sourceTree = "<group>"; };
-		D4D9DD232358F80100290C11 /* AVLoutput.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = AVLoutput.txt; sourceTree = "<group>"; };
+		D4D9DD202358C19B00290C11 /* AVL_input.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = AVL_input.txt; sourceTree = "<group>"; };
+		D4D9DD212358D35900290C11 /* Heap_input.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Heap_input.txt; sourceTree = "<group>"; };
+		D4D9DD222358F7E000290C11 /* Heap_input.txt.output.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Heap_input.txt.output.txt; sourceTree = "<group>"; };
+		D4D9DD232358F80100290C11 /* AVL_input.txt.output.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = AVL_input.txt.output.txt; sourceTree = "<group>"; };
 		D4D9DD262358FCB000290C11 /* timer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = timer.hpp; path = ../../../../../../../Downloads/timer.hpp; sourceTree = "<group>"; };
 		D4D9DD272358FCB600290C11 /* timer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = timer.cpp; path = ../../../../../../../Downloads/timer.cpp; sourceTree = "<group>"; };
 		D4D9DD292358FCE700290C11 /* TimeReport.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TimeReport.cpp; sourceTree = "<group>"; };
@@ -76,10 +76,10 @@
 			children = (
 				D4D9DD242358FB2600290C11 /* src */,
 				D4D9DD252358FB2E00290C11 /* includes */,
-				D4D9DD212358D35900290C11 /* HeapInput.txt */,
-				D4D9DD202358C19B00290C11 /* AVLinput.txt */,
-				D4D9DD232358F80100290C11 /* AVLoutput.txt */,
-				D4D9DD222358F7E000290C11 /* HeapOutput.txt */,
+				D4D9DD212358D35900290C11 /* Heap_input.txt */,
+				D4D9DD202358C19B00290C11 /* AVL_input.txt */,
+				D4D9DD232358F80100290C11 /* AVL_input.txt.output.txt */,
+				D4D9DD222358F7E000290C11 /* Heap_input.txt.output.txt */,
 			);
 			path = "CSC3012 Programming1";
 			sourceTree = "<group>";
