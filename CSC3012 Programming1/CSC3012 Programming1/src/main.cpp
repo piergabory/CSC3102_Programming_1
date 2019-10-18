@@ -2,8 +2,8 @@
 //  main.cpp
 //  CSC3012 Programming1
 //
-//  Created by Pierre Gabory and Wasim alam on 11/10/2019.
-//  Copyright © 2019 piergabory. All rights reserved.
+//  Created by Pierre Gabory and Wasim Alam on 11/10/2019.
+//   
 //
 
 #include "TimeReport.hpp"
