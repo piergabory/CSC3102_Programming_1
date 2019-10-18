@@ -18,13 +18,14 @@
 
 #include "AVL.hpp"
 #include "Heap.hpp"
-//#include "timer.hpp"
+#include "timer.hpp"
 
 
 class Instructions {
     FILE* input;
     std::string buffer;
     unsigned int extract_min_count;
+    CStopWatch stopwatch;
 
 public:
     Instructions(std::string filename);

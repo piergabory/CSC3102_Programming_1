@@ -10,10 +10,9 @@
 #define TimeReport_hpp
 
 #include <vector>
+#include <string>
 
 #include "timer.hpp"
-#include "Instructions.hpp"
-
 
 class TimeReport {
     struct Result {

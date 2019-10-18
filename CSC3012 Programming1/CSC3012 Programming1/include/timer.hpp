@@ -3,6 +3,9 @@
  *	returs elapsed time in micro-sec
  */
 
+#ifndef TIMER_H
+#define TIMER_H
+
 #if defined(WIN32)
 #include <windows.h>
 #endif
@@ -39,3 +42,5 @@ public:
 	double getElapsedTime();
 	void refreshTimer( );
 };
+
+#endif

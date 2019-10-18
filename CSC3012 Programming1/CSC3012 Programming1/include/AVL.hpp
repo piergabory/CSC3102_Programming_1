@@ -182,6 +182,36 @@ public:
     }
 
 
+    // Is that what PR are supposed to be?
+    /// Predecessor, see Successor.
+    AVL<T>* predecessor(T value) {
+           bool found = false;
+           AVL<T> *current = this, *lastInferiorParent = nullptr;
+
+           while (current) {
+               if (value == current->getKey()) {
+                   found = true;
+                   if (current->left) {
+                       return current->left->max();
+                   }
+               }
+
+               if (value < current->getKey()) {
+                   current = current->left;
+               } else {
+                   lastInferiorParent = current;
+                   current = current->right;
+               }
+           }
+
+           if (found) {
+               return lastInferiorParent; // Null if no successors.
+           } else {
+               return nullptr;
+           }
+       }
+
+
 
     /**
      * @brief finds the node matching the provided rank.
