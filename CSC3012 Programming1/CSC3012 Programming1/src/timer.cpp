@@ -41,8 +41,8 @@ double CStopWatch::getElapsedTime()
 	time.QuadPart = timer.stop.QuadPart - timer.start.QuadPart;
 	return LIToSecs( time) *1000000;
 }
-#endif
-#if defined(unix)|| defined(__APPLE__)
+
+#else
 
 CStopWatch::CStopWatch(){ }
 

@@ -8,8 +8,7 @@
 
 #if defined(WIN32)
 #include <windows.h>
-#endif
-#if defined(unix)|| defined(__APPLE__)
+#else
 #include <sys/time.h>
 #include <unistd.h>
 #endif
@@ -30,8 +29,7 @@ private:
 	stopWatch timer;
 	LARGE_INTEGER frequency;
 	double LIToSecs( LARGE_INTEGER & L);
-#endif
-#if defined(unix)|| defined(__APPLE__)
+#else
 	struct timeval start,end;
 	struct timezone tz;
 	double time_total;

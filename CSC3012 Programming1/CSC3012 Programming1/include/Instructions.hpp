@@ -19,7 +19,7 @@
 
 #include "AVL.hpp"
 #include "Heap.hpp"
-#include "timer.hpp"
+#include "TimeReport.hpp"
 
 namespace CSC3012_P1 {
 
