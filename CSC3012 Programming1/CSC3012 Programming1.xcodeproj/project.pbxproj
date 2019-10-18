@@ -51,6 +51,7 @@
 		D4CD800A23596B6500E48FF7 /* TimeReport.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = TimeReport.o; sourceTree = "<group>"; };
 		D4CD800C23596B6500E48FF7 /* AVL_input.txt.output.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = AVL_input.txt.output.txt; sourceTree = "<group>"; };
 		D4CD800D23596B6500E48FF7 /* program */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = program; sourceTree = "<group>"; };
+		D4CD801023596C1000E48FF7 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		D4D9DD1D2358B84600290C11 /* Instructions.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Instructions.cpp; sourceTree = "<group>"; };
 		D4D9DD1E2358B84600290C11 /* Instructions.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Instructions.hpp; sourceTree = "<group>"; };
 		D4D9DD202358C19B00290C11 /* AVL_input.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = AVL_input.txt; sourceTree = "<group>"; };
@@ -94,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				D4CD7FFF235967FB00E48FF7 /* makefile */,
+				D4CD801023596C1000E48FF7 /* .gitignore */,
 				D4CD800423596B6500E48FF7 /* build */,
 				D4D9DD242358FB2600290C11 /* src */,
 				D4D9DD252358FB2E00290C11 /* include */,
