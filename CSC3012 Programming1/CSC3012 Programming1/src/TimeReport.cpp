@@ -32,7 +32,7 @@ std::string TimeReport::report() {
     }
     
     report += "Report -------------------------\n";
-    const double chart_length = 16;
+    const double chart_length = 64;
     for(Result result: results) {
         int bar = chart_length * (result.time - min) / (max - min);
         report += result.name + " :\t" + std::to_string((int)result.time);

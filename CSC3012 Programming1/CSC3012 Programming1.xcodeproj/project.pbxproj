@@ -38,7 +38,6 @@
 
 /* Begin PBXFileReference section */
 		D4154BBB2350DD68002A33DE /* CSC3012 Programming1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "CSC3012 Programming1"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D4154BC92350DF30002A33DE /* Programming 1.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = "Programming 1.pdf"; path = "../Programming 1.pdf"; sourceTree = "<group>"; };
 		D4154BD2235130EE002A33DE /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		D4154BD5235130EE002A33DE /* Heap.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Heap.hpp; sourceTree = "<group>"; };
 		D4CD7FF22359648300E48FF7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -77,7 +76,6 @@
 		D4154BB22350DD68002A33DE = {
 			isa = PBXGroup;
 			children = (
-				D4154BC92350DF30002A33DE /* Programming 1.pdf */,
 				D4154BBD2350DD68002A33DE /* CSC3012 Programming1 */,
 				D4154BBC2350DD68002A33DE /* Products */,
 			);
