@@ -119,7 +119,7 @@ std::string Instructions::getNextInstruction(char instruction[], int &integer) {
 
     try {
         integer = std::stoi(std::string(instructionBuffer + 3));
-    } catch(std::exception e) {
+    } catch(std::invalid_argument &error) {
         integer = 0;
     }
 
