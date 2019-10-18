@@ -11,4 +11,4 @@
 428	//SE 11
 2	//RA 100
 35	//RA 991
-1168 micro-sec
+831 micro-sec

@@ -11,10 +11,9 @@
 
 #include <vector>
 #include <string>
+#include "timer.hpp"
 
 namespace CSC3012_P1 {
-
-#include "timer.hpp"
 
 class TimeReport {
     struct Result {

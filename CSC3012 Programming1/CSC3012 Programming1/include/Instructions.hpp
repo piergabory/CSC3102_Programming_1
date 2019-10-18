@@ -15,13 +15,13 @@
 #include <iostream>
 #include <string>
 #include <typeinfo>
+#include <exception>
 
 #include "AVL.hpp"
 #include "Heap.hpp"
+#include "timer.hpp"
 
 namespace CSC3012_P1 {
-
-#include "timer.hpp"
 
 class Instructions {
     FILE* input;
