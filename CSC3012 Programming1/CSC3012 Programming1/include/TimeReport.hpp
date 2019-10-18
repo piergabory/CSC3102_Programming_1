@@ -23,7 +23,7 @@ class TimeReport {
         Result(double time, std::string name) : time(time), name(name) {}
     };
 
-    std::string running = "";
+    std::string running;
     CStopWatch stopwatch;
     std::vector<Result> results;
 

@@ -15,7 +15,7 @@ void TimeReport::startRecording(std::string name) {
 
 void TimeReport::stopRecording() {
     stopwatch.stopTimer();
-    results.emplace_back(stopwatch.getElapsedTime(), running);
+    results.push_back(Result(stopwatch.getElapsedTime(), running));
     stopwatch.refreshTimer();
 }
 

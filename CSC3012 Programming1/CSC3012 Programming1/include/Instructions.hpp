@@ -22,9 +22,9 @@
 
 
 class Instructions {
-    FILE* input = nullptr;
-    std::string buffer = "";
-    unsigned int extract_min_count = 0;
+    FILE* input;
+    std::string buffer;
+    unsigned int extract_min_count;
 
 public:
     Instructions(std::string filename);

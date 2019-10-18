@@ -8,10 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		D4154BD7235130EE002A33DE /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D4154BD2235130EE002A33DE /* main.cpp */; };
+		D4CD8000235967FB00E48FF7 /* makefile in Sources */ = {isa = PBXBuildFile; fileRef = D4CD7FFF235967FB00E48FF7 /* makefile */; };
+		D4CD800323596A7F00E48FF7 /* timer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D4CD800223596A7F00E48FF7 /* timer.cpp */; };
 		D4D9DD1F2358B84600290C11 /* Instructions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D4D9DD1D2358B84600290C11 /* Instructions.cpp */; };
-		D4D9DD282358FCB600290C11 /* timer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D4D9DD272358FCB600290C11 /* timer.cpp */; };
 		D4D9DD2B2358FCE700290C11 /* TimeReport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D4D9DD292358FCE700290C11 /* TimeReport.cpp */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D4CD800E23596BE500E48FF7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D4154BB32350DD68002A33DE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D4CD7FF32359655600E48FF7;
+			remoteInfo = "CSC3012 Makefiled";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		D4154BB92350DD68002A33DE /* CopyFiles */ = {
@@ -30,14 +41,22 @@
 		D4154BC92350DF30002A33DE /* Programming 1.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = "Programming 1.pdf"; path = "../Programming 1.pdf"; sourceTree = "<group>"; };
 		D4154BD2235130EE002A33DE /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		D4154BD5235130EE002A33DE /* Heap.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Heap.hpp; sourceTree = "<group>"; };
+		D4CD7FF22359648300E48FF7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D4CD7FFF235967FB00E48FF7 /* makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = makefile; sourceTree = "<group>"; };
+		D4CD800123596A7600E48FF7 /* timer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = timer.hpp; sourceTree = "<group>"; };
+		D4CD800223596A7F00E48FF7 /* timer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = timer.cpp; sourceTree = "<group>"; };
+		D4CD800723596B6500E48FF7 /* main.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = main.o; sourceTree = "<group>"; };
+		D4CD800823596B6500E48FF7 /* timer.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = timer.o; sourceTree = "<group>"; };
+		D4CD800923596B6500E48FF7 /* Instructions.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = Instructions.o; sourceTree = "<group>"; };
+		D4CD800A23596B6500E48FF7 /* TimeReport.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = TimeReport.o; sourceTree = "<group>"; };
+		D4CD800C23596B6500E48FF7 /* AVL_input.txt.output.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = AVL_input.txt.output.txt; sourceTree = "<group>"; };
+		D4CD800D23596B6500E48FF7 /* program */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = program; sourceTree = "<group>"; };
 		D4D9DD1D2358B84600290C11 /* Instructions.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Instructions.cpp; sourceTree = "<group>"; };
 		D4D9DD1E2358B84600290C11 /* Instructions.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Instructions.hpp; sourceTree = "<group>"; };
 		D4D9DD202358C19B00290C11 /* AVL_input.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = AVL_input.txt; sourceTree = "<group>"; };
 		D4D9DD212358D35900290C11 /* Heap_input.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Heap_input.txt; sourceTree = "<group>"; };
 		D4D9DD222358F7E000290C11 /* Heap_input.txt.output.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Heap_input.txt.output.txt; sourceTree = "<group>"; };
 		D4D9DD232358F80100290C11 /* AVL_input.txt.output.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = AVL_input.txt.output.txt; sourceTree = "<group>"; };
-		D4D9DD262358FCB000290C11 /* timer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = timer.hpp; path = ../../../../../../../Downloads/timer.hpp; sourceTree = "<group>"; };
-		D4D9DD272358FCB600290C11 /* timer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = timer.cpp; path = ../../../../../../../Downloads/timer.cpp; sourceTree = "<group>"; };
 		D4D9DD292358FCE700290C11 /* TimeReport.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TimeReport.cpp; sourceTree = "<group>"; };
 		D4D9DD2A2358FCE700290C11 /* TimeReport.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TimeReport.hpp; sourceTree = "<group>"; };
 		D4DE05CD2354EA5B00DADF43 /* AVL.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AVL.hpp; sourceTree = "<group>"; };
@@ -74,20 +93,60 @@
 		D4154BBD2350DD68002A33DE /* CSC3012 Programming1 */ = {
 			isa = PBXGroup;
 			children = (
+				D4CD7FFF235967FB00E48FF7 /* makefile */,
+				D4CD800423596B6500E48FF7 /* build */,
 				D4D9DD242358FB2600290C11 /* src */,
-				D4D9DD252358FB2E00290C11 /* includes */,
+				D4D9DD252358FB2E00290C11 /* include */,
 				D4D9DD212358D35900290C11 /* Heap_input.txt */,
 				D4D9DD202358C19B00290C11 /* AVL_input.txt */,
+				D4CD7FF22359648300E48FF7 /* README.md */,
 				D4D9DD232358F80100290C11 /* AVL_input.txt.output.txt */,
 				D4D9DD222358F7E000290C11 /* Heap_input.txt.output.txt */,
 			);
 			path = "CSC3012 Programming1";
 			sourceTree = "<group>";
 		};
+		D4CD800423596B6500E48FF7 /* build */ = {
+			isa = PBXGroup;
+			children = (
+				D4CD800523596B6500E48FF7 /* objects */,
+				D4CD800B23596B6500E48FF7 /* apps */,
+			);
+			path = build;
+			sourceTree = "<group>";
+		};
+		D4CD800523596B6500E48FF7 /* objects */ = {
+			isa = PBXGroup;
+			children = (
+				D4CD800623596B6500E48FF7 /* src */,
+			);
+			path = objects;
+			sourceTree = "<group>";
+		};
+		D4CD800623596B6500E48FF7 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				D4CD800723596B6500E48FF7 /* main.o */,
+				D4CD800823596B6500E48FF7 /* timer.o */,
+				D4CD800923596B6500E48FF7 /* Instructions.o */,
+				D4CD800A23596B6500E48FF7 /* TimeReport.o */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		D4CD800B23596B6500E48FF7 /* apps */ = {
+			isa = PBXGroup;
+			children = (
+				D4CD800C23596B6500E48FF7 /* AVL_input.txt.output.txt */,
+				D4CD800D23596B6500E48FF7 /* program */,
+			);
+			path = apps;
+			sourceTree = "<group>";
+		};
 		D4D9DD242358FB2600290C11 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				D4D9DD272358FCB600290C11 /* timer.cpp */,
+				D4CD800223596A7F00E48FF7 /* timer.cpp */,
 				D4154BD2235130EE002A33DE /* main.cpp */,
 				D4D9DD292358FCE700290C11 /* TimeReport.cpp */,
 				D4D9DD1D2358B84600290C11 /* Instructions.cpp */,
@@ -95,19 +154,36 @@
 			path = src;
 			sourceTree = "<group>";
 		};
-		D4D9DD252358FB2E00290C11 /* includes */ = {
+		D4D9DD252358FB2E00290C11 /* include */ = {
 			isa = PBXGroup;
 			children = (
-				D4D9DD262358FCB000290C11 /* timer.hpp */,
+				D4CD800123596A7600E48FF7 /* timer.hpp */,
 				D4DE05CD2354EA5B00DADF43 /* AVL.hpp */,
 				D4154BD5235130EE002A33DE /* Heap.hpp */,
 				D4D9DD1E2358B84600290C11 /* Instructions.hpp */,
 				D4D9DD2A2358FCE700290C11 /* TimeReport.hpp */,
 			);
-			path = includes;
+			path = include;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
+
+/* Begin PBXLegacyTarget section */
+		D4CD7FF32359655600E48FF7 /* CSC3012 Makefiled */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "";
+			buildConfigurationList = D4CD7FF42359655600E48FF7 /* Build configuration list for PBXLegacyTarget "CSC3012 Makefiled" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/bin/make;
+			buildWorkingDirectory = "/Users/piergabory/Developer/LSU/CSC3012 Advanced Data Structures and Algorithm Analysis/#Programming 1/CSC3012 Programming1/CSC3012 Programming1";
+			dependencies = (
+			);
+			name = "CSC3012 Makefiled";
+			passBuildSettingsInEnvironment = 1;
+			productName = "CSC3012 Makefiled";
+		};
+/* End PBXLegacyTarget section */
 
 /* Begin PBXNativeTarget section */
 		D4154BBA2350DD68002A33DE /* CSC3012 Programming1 */ = {
@@ -121,6 +197,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				D4CD800F23596BE500E48FF7 /* PBXTargetDependency */,
 			);
 			name = "CSC3012 Programming1";
 			productName = "CSC3012 Programming1";
@@ -139,6 +216,9 @@
 					D4154BBA2350DD68002A33DE = {
 						CreatedOnToolsVersion = 11.1;
 					};
+					D4CD7FF32359655600E48FF7 = {
+						CreatedOnToolsVersion = 11.1;
+					};
 				};
 			};
 			buildConfigurationList = D4154BB62350DD68002A33DE /* Build configuration list for PBXProject "CSC3012 Programming1" */;
@@ -155,6 +235,7 @@
 			projectRoot = "";
 			targets = (
 				D4154BBA2350DD68002A33DE /* CSC3012 Programming1 */,
+				D4CD7FF32359655600E48FF7 /* CSC3012 Makefiled */,
 			);
 		};
 /* End PBXProject section */
@@ -165,13 +246,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4154BD7235130EE002A33DE /* main.cpp in Sources */,
+				D4CD800323596A7F00E48FF7 /* timer.cpp in Sources */,
 				D4D9DD1F2358B84600290C11 /* Instructions.cpp in Sources */,
 				D4D9DD2B2358FCE700290C11 /* TimeReport.cpp in Sources */,
-				D4D9DD282358FCB600290C11 /* timer.cpp in Sources */,
+				D4CD8000235967FB00E48FF7 /* makefile in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D4CD800F23596BE500E48FF7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D4CD7FF32359655600E48FF7 /* CSC3012 Makefiled */;
+			targetProxy = D4CD800E23596BE500E48FF7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		D4154BC02350DD68002A33DE /* Debug */ = {
@@ -303,6 +393,33 @@
 			};
 			name = Release;
 		};
+		D4CD7FF52359655600E48FF7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEBUGGING_SYMBOLS = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = GJ3CB2MZ43;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		D4CD7FF62359655600E48FF7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = GJ3CB2MZ43;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -320,6 +437,15 @@
 			buildConfigurations = (
 				D4154BC32350DD68002A33DE /* Debug */,
 				D4154BC42350DD68002A33DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D4CD7FF42359655600E48FF7 /* Build configuration list for PBXLegacyTarget "CSC3012 Makefiled" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4CD7FF52359655600E48FF7 /* Debug */,
+				D4CD7FF62359655600E48FF7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

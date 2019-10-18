@@ -19,7 +19,11 @@ static std::string nth(unsigned int count) {
     return out;
 }
 
-Instructions::Instructions(std::string filename) {
+Instructions::Instructions(std::string filename):
+    input(nullptr),
+    buffer(""),
+    extract_min_count(0)
+{
     input = fopen(filename.c_str(), "r");
     if (input == nullptr) {
         std::cerr << "Failed to read input file \"" << filename << "\"\n";

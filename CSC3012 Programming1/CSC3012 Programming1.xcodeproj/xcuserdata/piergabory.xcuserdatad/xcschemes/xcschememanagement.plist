@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>CSC3012 Makefiled.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>CSC3012 Programming1.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
@@ -13,6 +18,11 @@
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>D4154BBA2350DD68002A33DE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D4CD7FF32359655600E48FF7</key>
 		<dict>
 			<key>primary</key>
 			<true/>

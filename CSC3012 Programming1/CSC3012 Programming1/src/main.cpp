@@ -32,7 +32,7 @@ int main(int argc, const char * argv[]) {
 
     Instructions heap_instructions(heap_input);
     heap_instructions.executeForHeap();
-    heap_instructions.saveTo(AVL_input + ".output.txt");
+    heap_instructions.saveTo(heap_input + ".output.txt");
 
 
     // - MARK: K-ARY HEAP INSERT/EXTRACT EFFICIENCY

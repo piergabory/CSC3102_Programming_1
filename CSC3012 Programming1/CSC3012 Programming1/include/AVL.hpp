@@ -26,24 +26,30 @@ class AVL {
 
 
     /// Height of the tree, length of the longest path in the tree
-    int height = 0;
+    int height;
 
 
     /// Number of nodes in the tree, including the root.
-    int size = 1;
+    int size;
 
 
     /// Pointer towards the left and right subtree.
     /// The left subtree contains all the values lower than the root's key.
     /// The right subtree contains all the values higher than the root's key.
-    AVL<T> *left = nullptr;
-    AVL<T> *right = nullptr;
+    AVL<T> *left;
+    AVL<T> *right;
 
 // -MARK : Public methods
 public:
 
     /// Constructor: initialize the key.
-    AVL(T key): _key(key) {}
+    AVL(T key):
+        _key(key),
+        height(0),
+        size(1),
+        left(nullptr),
+        right(nullptr)
+    {}
 
 
 
@@ -185,7 +191,7 @@ public:
      * @return node matching the rank
      */
     AVL<T>* select(unsigned int rank) {
-        int leftSize = left ? left->size : 0;
+        unsigned int leftSize = left ? left->size : 0;
         if (leftSize >= rank) {
             return left->select(rank);
         }

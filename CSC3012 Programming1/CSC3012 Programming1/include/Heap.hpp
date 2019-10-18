@@ -13,12 +13,12 @@
 
 template <typename T>
 class Heap {
-    const int K;
+    const size_t K;
     std::vector<T> arrayRep;
     
 public:
     Heap() : K(2) {}
-    Heap(const int k): K(k) {}
+    Heap(const size_t k): K(k) {}
 
     void insert(T value) {
         arrayRep.push_back(value);
@@ -36,10 +36,10 @@ public:
     T extractMin() {
         swap(first(), last());
 
-        int current = 1;
+        size_t current = 1;
         while (current < arrayRep.size()) {
-            int min_child = current + 1;
-            for (int offset = 1; offset <= K && (current + offset) < arrayRep.size(); offset++) {
+            size_t min_child = current + 1;
+            for (size_t offset = 1; offset <= K && (current + offset) < arrayRep.size(); offset++) {
                 min_child = (get(current + offset) < get(min_child)) ? (current + offset) : min_child;
             }
 
