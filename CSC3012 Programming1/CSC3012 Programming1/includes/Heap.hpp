@@ -16,7 +16,7 @@ class Heap {
     const int K;
     std::vector<T> arrayRep;
     
-    public:
+public:
     Heap() : K(2) {}
     Heap(const int k): K(k) {}
 
@@ -34,30 +34,25 @@ class Heap {
     }
 
     T extractMin() {
-        const T min = first();
         swap(first(), last());
-        arrayRep.pop_back();
 
-        size_t next, current = 1;
+        int current = 1;
         while (current < arrayRep.size()) {
-            next = current * K;
-
-            bool validHeap = true;
-            for (size_t i = 0; i < K; i++) {
-                validHeap &= get(current) < get(next + 1);
+            int min_child = current + 1;
+            for (int offset = 1; offset <= K && (current + offset) < arrayRep.size(); offset++) {
+                min_child = (get(current + offset) < get(min_child)) ? (current + offset) : min_child;
             }
-            if (validHeap) return min;
 
-            size_t min_child_index = next;
-            for (size_t i = 0; i < K; i++) {
-                min_child_index = ( get(next) < get(min_child_index) ) ? next : min_child_index;
+            if (get(min_child) > get(current)) {
+                break;
+            } else {
+                swap(get(current), get(min_child));
+                current = min_child * K;
             }
-            next = min_child_index;
-
-            swap(get(current), get(next));
-            current = next;
         }
 
+        const int min = last();
+        arrayRep.pop_back();
         return min;
     }
 

@@ -6,38 +6,43 @@
 //  Copyright © 2019 piergabory. All rights reserved.
 //
 
+#include "TimeReport.hpp"
 #include "Instructions.hpp"
+#include <random>
 
 int main(int argc, const char * argv[]) {
-    Heap<int> heap2(2);
-    Heap<int> heap3(3);
-    Heap<int> heap4(4);
-    Heap<int> heap6(6);
-    Heap<int> heap10(10);
+    TimeReport report;
 
-    for(int i = 3; i < 100; i++) {
-        heap2.insert(i);
-        heap3.insert(i);
-        heap4.insert(i);
-        heap6.insert(i);
-        heap10.insert(i);
-
-//        if (i % 6 == 0) {
-//            heap2.extractMin();
-//            heap3.extractMin();
-//            heap4.extractMin();
-//            heap6.extractMin();
-//            heap10.extractMin();
-//        }
-    }
-
+    report.startRecording("AVL");
     Instructions avl_instructions("AVLinput.txt");
     avl_instructions.executeForAVL();
     avl_instructions.saveTo("AVLoutput.txt");
+    report.stopRecording();
 
+    report.startRecording("Heap");
     Instructions heap_instructions("HeapInput.txt");
     heap_instructions.executeForHeap();
     heap_instructions.saveTo("HeapOutput.txt");
+    report.stopRecording();
+
+    std::cout << report.report();
+
+
+    TimeReport kHeapTimes;
+    for (int i = 2; i < 30; i++) {
+        kHeapTimes.startRecording("Heap K=" + std::to_string(i));
+        for(int j = 3; j < 100; j++) {
+            Heap<int> heap(i);
+            for(int j = 3; j < 100; j++) {
+                heap.insert(rand());
+                if (j % 10 == 0) {
+                    heap.extractMin();
+                }
+            }
+        }
+        kHeapTimes.stopRecording();
+    }
+    std::cout << kHeapTimes.report();
 
     return 0;
 }
