@@ -12,24 +12,61 @@
 #include <algorithm>
 #include <string>
 
+/**
+ * # AVL Tree class
+ * CPP Implementation of AVL trees.
+ * Template class can handle any type implementing the > and == operator
+ */
 template<typename T>
+// -MARK : Private properties
 class AVL {
+
+    /// Constant property, value of the node
     const T _key;
+
+
+    /// Height of the tree, length of the longest path in the tree
     int height = 0;
+
+
+    /// Number of nodes in the tree, including the root.
     int size = 1;
+
+
+    /// Pointer towards the left and right subtree.
+    /// The left subtree contains all the values lower than the root's key.
+    /// The right subtree contains all the values higher than the root's key.
     AVL<T> *left = nullptr;
     AVL<T> *right = nullptr;
 
+// -MARK : Public methods
 public:
 
+    /// Constructor: initialize the key.
     AVL(T key): _key(key) {}
 
+
+
+    /// Destructor: Recursively deletes its childrens.
     ~AVL() { delete left; delete right; }
 
+
+
+    /// Key value getter.
     inline T getKey() {
         return _key;
     }
 
+
+
+    /**
+     * @brief In-order stringification of the tree.
+     * Concatenates all the values of the tree in in-order in a space separated values string: "A B C D E F"
+     *
+     * We choosed a recursive solution for simplicity. An iterative solution could be done with a stack structure.
+     *
+     * @returns string representation of the tree
+     */
     std::string inorder() {
         std::string string = "";
         if (left) {
@@ -42,6 +79,16 @@ public:
         return string;
     }
 
+
+
+    /**
+     * @brief tells if a value is present in the AVL tree.
+     *
+     * Iterative solution of the AVL search algorithm
+     *
+     * @param value  needle searched in the tree's haystack of nodes.
+     * @returns boolean, true if the value is present in the tree
+     */
     bool search(T value) {
         AVL<T> *current = this;
         while (current) {
@@ -58,6 +105,13 @@ public:
         return false;
     }
 
+
+
+    /**
+     * @brief returns the tree's node with the smallest key
+     * Implemented with iterative solution
+     * @returns the leftmost node of the AVL tree
+     */
     AVL<T>* min() {
         AVL<T> *current = this;
         while (current->left) {
@@ -66,6 +120,13 @@ public:
         return current;
     }
 
+
+
+    /**
+     * @brief returns the tree's node with the largest key
+     * Implemented with iterative solution
+     * @returns the rightmost node of the AVL tree
+     */
     AVL<T>* max() {
         AVL<T> *current = this;
         while (current->right) {
@@ -74,6 +135,19 @@ public:
         return current;
     }
 
+
+
+    /**
+     * @brief finds the successor to a value.
+     * Iterative implementation
+     * Will return the min() of the right subtree if it exists,
+     * else will return the last parent where the node came branching left.
+     *
+     * @param value to success to.
+     * @returns
+     *      - the node with the smallest superior key to the provided value.
+     *      - Null if the value there are no successors.
+     */
     AVL<T>* successor(T value) {
         bool found = false;
         AVL<T> *current = this, *lastSuperiorParent = nullptr;
@@ -101,6 +175,15 @@ public:
         }
     }
 
+
+
+    /**
+     * @brief finds the node matching the provided rank.
+     * Recursive implementation.
+     * Will return the rankth smallest node.
+     * @param rank  searched rank
+     * @return node matching the rank
+     */
     AVL<T>* select(unsigned int rank) {
         int leftSize = left ? left->size : 0;
         if (leftSize >= rank) {
@@ -112,6 +195,15 @@ public:
         return right->select(rank - leftSize -  1);
     }
 
+
+
+    /**
+     * @brief computes the rank of a key in a subtree.
+     * Recursive implementation.
+     * Will return the number of nodes with a value lower than the provided key.
+     * @param key key of the searched node.
+     * @return return the rank of the node
+     */
     unsigned int rank(T key) {
         unsigned int leftRank = left ? left->rank(key) : 0;
         unsigned int rightRank = right ? right->rank(key) : 0;
@@ -122,6 +214,17 @@ public:
         return leftSize + 1 + rightRank;
     }
 
+
+
+    /**
+     * @brief AVL insertion
+     * BST insertion of a new node, with restoration of the AVL properties.
+     * Recursive implementation
+     * Insertions are cancelled if the key is already present in the tree.
+     * @param node destination tree
+     * @param key value of the created key.
+     * @return absolute value of the tree's balance. used internally in the recursion.
+     */
     static int insert(AVL *&node, T key) {
         int imbalance;
         if (node == nullptr) {
@@ -150,6 +253,8 @@ public:
         return (node->balanceFactor() == 0) ? 0 : 1;
     }
 
+
+    // -MARK : Private methods
     private:
 
     inline int balanceFactor() {
